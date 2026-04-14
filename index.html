@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAKE A SHOWER — 샤워하는 시간</title>
+<title>이 향, 엄마 생각나 — TAKE A SHOWER</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,7 +41,6 @@ body {
   background: var(--bg);
   overflow: hidden;
 }
-
 .hero::after {
   content: '';
   position: absolute;
@@ -76,9 +75,9 @@ body {
   font-family: var(--serif);
   font-size: clamp(48px, 9vw, 108px);
   font-weight: 300;
-  line-height: 1.0;
+  line-height: 1.05;
   letter-spacing: -0.02em;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
   opacity: 0;
   animation: fadeUp 0.9s ease 0.35s forwards;
 }
@@ -89,122 +88,105 @@ body {
 }
 
 .hero-sub {
-  font-size: clamp(14px, 1.6vw, 17px);
-  line-height: 2.0;
+  font-size: clamp(15px, 1.8vw, 19px);
+  line-height: 1.7;
   color: var(--mid);
-  max-width: 480px;
-  margin-bottom: 52px;
+  max-width: 420px;
+  margin-bottom: 16px;
   opacity: 0;
   animation: fadeUp 0.9s ease 0.5s forwards;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.6s forwards;
+  flex-wrap: wrap;
+}
+.hero-badge {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.15);
+  padding: 5px 14px;
+  background: var(--white);
 }
 
 .hero-cta {
   display: inline-block;
   background: var(--text);
   color: var(--white);
-  padding: 16px 44px;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  padding: 18px 52px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
   text-decoration: none;
   font-family: var(--sans);
   transition: background 0.3s;
   opacity: 0;
-  animation: fadeUp 0.9s ease 0.65s forwards;
+  animation: fadeUp 0.9s ease 0.7s forwards;
 }
 .hero-cta:hover { background: var(--accent); }
 
-.hero-scroll-line {
-  position: absolute;
-  bottom: 40px; left: 6vw;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 9px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
+/* ── 공감 섹션 ── */
+.empathy {
+  padding: 80px 6vw;
+  background: var(--bg2);
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.07);
+}
+.empathy p {
+  font-family: var(--serif);
+  font-size: clamp(20px, 3.5vw, 36px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 640px;
+  margin: 0 auto 16px;
+}
+.empathy p em { font-style: italic; color: var(--accent); }
+.empathy span {
+  font-size: 13px;
   color: var(--mid);
-  opacity: 0;
-  animation: fadeUp 1s ease 1s forwards;
-}
-.hero-scroll-line::after {
-  content: '';
-  width: 1px; height: 40px;
-  background: var(--accent);
+  line-height: 1.9;
   display: block;
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.4; transform: scaleY(1); }
-  50% { opacity: 1; transform: scaleY(0.5); }
+  max-width: 480px;
+  margin: 0 auto;
 }
 
-/* ── EMOTION SECTIONS ── */
-.emotion-section {
-  padding: 100px 6vw;
+/* ── 브랜드 경험 섹션 ── */
+.experience {
+  padding: 80px 6vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
   border-top: 1px solid rgba(0,0,0,0.07);
 }
-.emotion-section.reverse { direction: rtl; }
-.emotion-section.reverse > * { direction: ltr; }
+@media (max-width: 768px) { .experience { grid-template-columns: 1fr; gap: 36px; } }
 
-@media (max-width: 768px) {
-  .emotion-section { grid-template-columns: 1fr; gap: 36px; padding: 72px 6vw; direction: ltr !important; }
-}
-
-.emotion-text .num {
+.experience-text h2 {
   font-family: var(--serif);
-  font-size: 60px;
+  font-size: clamp(26px, 3.5vw, 42px);
   font-weight: 300;
-  color: rgba(184,168,152,0.25);
-  line-height: 1;
-  margin-bottom: -8px;
-}
-.emotion-text h2 {
-  font-family: var(--serif);
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.3;
   margin-bottom: 20px;
-  letter-spacing: -0.01em;
 }
-.emotion-text h2 em { font-style: italic; color: var(--accent); }
-.emotion-text p {
+.experience-text h2 em { font-style: italic; color: var(--accent); }
+.experience-text p {
   font-size: 14px;
   line-height: 2.0;
   color: var(--mid);
-  max-width: 380px;
-  margin-bottom: 28px;
 }
-
-.emotion-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text);
-  text-decoration: none;
-  border-bottom: 1px solid var(--text);
-  padding-bottom: 3px;
-  transition: color 0.3s, border-color 0.3s;
-}
-.emotion-link:hover { color: var(--accent); border-color: var(--accent); }
-.emotion-link::after { content: '→'; font-size: 13px; }
-
-/* ── YOUTUBE EMBED ── */
-.yt-wrap {
+.experience-video {
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
   overflow: hidden;
   background: var(--bg2);
 }
-.yt-wrap iframe {
+.experience-video iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -212,129 +194,208 @@ body {
   border: none;
 }
 
-/* ── DIVIDER QUOTE ── */
-.quote-section {
-  padding: 80px 6vw;
-  text-align: center;
-  border-top: 1px solid rgba(0,0,0,0.07);
-  background: var(--bg2);
-}
-.quote-section blockquote {
-  font-family: var(--serif);
-  font-size: clamp(22px, 4vw, 40px);
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--text);
-  max-width: 700px;
-  margin: 0 auto 20px;
-}
-.quote-section cite {
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-style: normal;
-}
-
-/* ── GIFT SECTION ── */
+/* ── 선물 섹션 ── */
 .gift-section {
-  padding: 100px 6vw;
+  padding: 80px 6vw;
   border-top: 1px solid rgba(0,0,0,0.07);
+  background: var(--white);
 }
 .gift-header {
+  margin-bottom: 48px;
+}
+.gift-header .gift-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 52px;
+  align-items: center;
+  gap: 12px;
+}
+.gift-header .gift-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--accent);
 }
 .gift-header h2 {
   font-family: var(--serif);
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: clamp(26px, 4vw, 44px);
   font-weight: 300;
   line-height: 1.2;
+  margin-bottom: 12px;
 }
 .gift-header h2 em { font-style: italic; color: var(--accent); }
 .gift-header p {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--mid);
-  text-align: right;
   line-height: 1.8;
-}
-@media (max-width: 768px) {
-  .gift-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .gift-header p { text-align: left; }
 }
 
 .gift-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 3px;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 @media (max-width: 768px) { .gift-grid { grid-template-columns: 1fr 1fr; } }
 
 .gift-card {
-  background: var(--white);
-  padding: 36px 28px;
+  background: var(--bg);
+  padding: 0 0 28px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   text-decoration: none;
   color: var(--text);
   transition: background 0.3s;
   cursor: pointer;
+  overflow: hidden;
 }
 .gift-card:hover { background: var(--bg2); }
-
-.gift-card .gift-cat {
-  font-size: 9px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--accent);
+.gift-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 20px;
 }
+.gift-card-body { padding: 0 20px; }
 .gift-card .gift-name {
   font-family: var(--serif);
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 300;
   letter-spacing: 0.02em;
+  margin-bottom: 6px;
 }
-.gift-card .gift-sub {
-  font-size: 11px;
+.gift-card .gift-desc {
+  font-size: 12px;
   color: var(--mid);
-  letter-spacing: 0.05em;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-style: italic;
 }
 .gift-card .gift-price {
   font-family: var(--serif);
   font-size: 18px;
   font-weight: 300;
-  margin-top: auto;
-  padding-top: 20px;
-  border-top: 1px solid #E8E4DF;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin-bottom: 8px;
 }
 .gift-card .gift-buy {
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-top: 4px;
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.gift-card img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  display: block;
-  margin-bottom: 16px;
+.gift-card .gift-buy::after { content: '→'; }
+
+.gift-cta-wrap {
+  text-align: center;
+  margin-top: 16px;
+}
+.gift-cta {
+  display: inline-block;
+  border: 1px solid var(--text);
+  color: var(--text);
+  padding: 14px 44px;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  font-family: var(--sans);
+  transition: all 0.3s;
+}
+.gift-cta:hover { background: var(--text); color: var(--white); }
+
+/* ── 아빠 섹션 ── */
+.dad-section {
+  padding: 80px 6vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.07);
   background: var(--bg2);
 }
-.gift-card .gift-buy::after { content: '→'; }
-.gift-card:hover .gift-buy { color: var(--text); }
+@media (max-width: 768px) { .dad-section { grid-template-columns: 1fr; gap: 36px; } }
 
-/* ── BIG CTA ── */
-.big-cta {
+.dad-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 300;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+.dad-text h2 em { font-style: italic; color: var(--accent); }
+.dad-text p {
+  font-size: 14px;
+  line-height: 2.0;
+  color: var(--mid);
+}
+.dad-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--bg);
+}
+.dad-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── 배송 CTA ── */
+.delivery-cta {
+  padding: 72px 6vw;
+  background: var(--bg);
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.delivery-cta .delivery-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  padding: 6px 20px;
+}
+.delivery-cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(24px, 4vw, 44px);
+  font-weight: 300;
+  line-height: 1.3;
+}
+.delivery-cta h2 em { font-style: italic; color: var(--accent); }
+.delivery-cta p {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.8;
+}
+.delivery-cta-btn {
+  display: inline-block;
+  background: var(--text);
+  color: var(--white);
+  padding: 18px 56px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  font-family: var(--sans);
+  transition: background 0.3s;
+}
+.delivery-cta-btn:hover { background: var(--accent); }
+
+/* ── 마지막 CTA ── */
+.final-cta {
   padding: 100px 6vw;
   background: var(--text);
   color: var(--white);
@@ -342,36 +403,34 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
 }
-.big-cta h2 {
+.final-cta h2 {
   font-family: var(--serif);
-  font-size: clamp(36px, 7vw, 80px);
+  font-size: clamp(32px, 6vw, 72px);
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
-.big-cta h2 em { font-style: italic; color: var(--accent); }
-.big-cta p {
+.final-cta h2 em { font-style: italic; color: var(--accent); }
+.final-cta p {
   font-size: 13px;
-  line-height: 1.9;
-  opacity: 0.55;
-  max-width: 400px;
+  opacity: 0.5;
+  line-height: 1.8;
 }
-.big-cta-btn {
+.final-cta-btn {
   display: inline-block;
   background: var(--white);
   color: var(--text);
   padding: 18px 56px;
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.15em;
   text-decoration: none;
   font-family: var(--sans);
-  transition: background 0.3s, color 0.3s;
+  transition: all 0.3s;
   margin-top: 8px;
 }
-.big-cta-btn:hover { background: var(--accent); color: var(--white); }
+.final-cta-btn:hover { background: var(--accent); color: var(--white); }
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
@@ -388,78 +447,97 @@ body {
 </head>
 <body>
 
-<!-- HERO -->
+<!-- 1. HERO -->
 <section class="hero">
   <div class="hero-label">Take A Shower</div>
   <h1 class="hero-title">
-    샤워할 때만큼은<br>
-    <em>아무 생각<br>안 해도 돼요.</em>
+    이 향,<br>
+    <em>엄마 생각나</em>
   </h1>
-  <p class="hero-sub">
-    하루 중 유일하게 아무것도 하지 않아도 되는 시간.<br>
-    좋은 향이 감정을 회복시키고,<br>
-    당신을 다시 당신으로 되돌려 놓습니다.
-  </p>
-  <a href="#gift" class="hero-cta">선물 보러가기</a>
-  <div class="hero-scroll-line">Scroll</div>
+  <p class="hero-sub">말로는 부족한 마음, 향기로 전하세요<br><strong style="color:var(--text); font-weight:500;">지금 주문하면 어버이날 전 도착합니다</strong></p>
+  <div class="hero-badges">
+    <span class="hero-badge">🚚 5월 6일까지 주문 시 어버이날 전 도착</span>
+    <span class="hero-badge">🎁 선물 포장 가능</span>
+  </div>
+  <a href="#gift" class="hero-cta">지금 선물하기</a>
 </section>
 
-<!-- HERO 바로 아래 제품 섹션 -->
-<section class="gift-section" id="gift" style="padding-top: 60px;">
+<!-- 2. 공감 섹션 통합 -->
+<section class="empathy fade-in">
+  <p>매년 같은 선물, 고민되셨죠?<br><em>카네이션 말고,</em> 기억에 남는 선물은 없을까요</p>
+  <span>
+    꽃은 시들지만,<br>
+    향기는 기억에 남습니다.
+  </span>
+  <p style="margin-top:32px; font-size:clamp(18px,2.5vw,30px);">
+    좋은 향은 오래 남고,<br><em>기억은 더 오래 남습니다.</em>
+  </p>
+  <span style="margin-top:20px; font-size:clamp(14px,1.6vw,18px); font-family:var(--serif); font-style:italic; color:var(--text); opacity:0.7;">
+    그래서, 향을 선물합니다
+  </span>
+</section>
+
+<!-- 3. 선물 섹션 -->
+<section class="gift-section fade-in" id="gift">
   <div class="gift-header">
-    <h2>사랑하는 사람에게<br><em>향을 선물하세요</em></h2>
-    <p>클릭하면 바로 구매 페이지로 이동합니다</p>
+    <div class="gift-eyebrow">Gift Set</div>
+    <h2>좋은 건, 나만 쓰기 싫어서<br><em>소중한 사람에게 전하고 싶은 향</em></h2>
+    <p>바디로션 + 바디워시 세트 구성 · 선물 포장 가능</p>
   </div>
   <div class="gift-grid">
     <a class="gift-card" href="https://takeashower.co.kr/product/garden-gift-set/21/category/25/display/1/" target="_blank">
       <img src="https://ecimg.cafe24img.com/pg827b68986978015/tas2024/web/product/small/20260219/261d26594232e14a01b712e57f88673f.jpg" alt="GARDEN 세트">
-      <span class="gift-cat">Body Lotion + Body Wash</span>
-      <span class="gift-name">GARDEN</span>
-      <span class="gift-sub">바디로션 + 바디워시 세트</span>
-      <span class="gift-price">₩52,000</span>
-      <span class="gift-buy">구매하기</span>
+      <div class="gift-card-body">
+        <span class="gift-name">GARDEN</span>
+        <p class="gift-desc">햇살처럼 따뜻한 향</p>
+        <span class="gift-price">₩52,000</span>
+        <span class="gift-buy">향 선택하기</span>
+      </div>
     </a>
     <a class="gift-card" href="https://takeashower.co.kr/product/ubud-gift-set/22/category/25/display/1/" target="_blank">
       <img src="https://ecimg.cafe24img.com/pg827b68986978015/tas2024/web/product/small/20260223/2f335870cfe897d802c175cb916461a0.jpg" alt="Ubud 세트">
-      <span class="gift-cat">Body Lotion + Body Wash</span>
-      <span class="gift-name">Ubud</span>
-      <span class="gift-sub">바디로션 + 바디워시 세트</span>
-      <span class="gift-price">₩52,000</span>
-      <span class="gift-buy">구매하기</span>
+      <div class="gift-card-body">
+        <span class="gift-name">Ubud</span>
+        <p class="gift-desc">숲의 새벽처럼 차분한 향</p>
+        <span class="gift-price">₩52,000</span>
+        <span class="gift-buy">향 선택하기</span>
+      </div>
     </a>
     <a class="gift-card" href="https://takeashower.co.kr/product/fovere-gift-set/24/category/25/display/1/" target="_blank">
       <img src="https://ecimg.cafe24img.com/pg827b68986978015/tas2024/web/product/small/20260312/5b2b2b7fb0d6a5ac0f792c80f7d592a6.jpg" alt="FOVERE 세트">
-      <span class="gift-cat">Body Lotion + Body Wash</span>
-      <span class="gift-name">FOVERE</span>
-      <span class="gift-sub">바디로션 + 바디워시 세트</span>
-      <span class="gift-price">₩52,000</span>
-      <span class="gift-buy">구매하기</span>
+      <div class="gift-card-body">
+        <span class="gift-name">FOVERE</span>
+        <p class="gift-desc">꽃잎처럼 포근하게 감싸는 향</p>
+        <span class="gift-price">₩52,000</span>
+        <span class="gift-buy">향 선택하기</span>
+      </div>
     </a>
     <a class="gift-card" href="https://takeashower.co.kr/product/ficus-gift-set/23/category/25/display/1/" target="_blank">
       <img src="https://ecimg.cafe24img.com/pg827b68986978015/tas2024/web/product/extra/small/20260219/8081968cc46fa5eadcd2ae351120ddc6.jpg" alt="FICUS 세트">
-      <span class="gift-cat">Body Lotion + Body Wash</span>
-      <span class="gift-name">FICUS</span>
-      <span class="gift-sub">바디로션 + 바디워시 세트</span>
-      <span class="gift-price">₩52,000</span>
-      <span class="gift-buy">구매하기</span>
+      <div class="gift-card-body">
+        <span class="gift-name">FICUS</span>
+        <p class="gift-desc">청명한 아침 공기 같은 향</p>
+        <span class="gift-price">₩52,000</span>
+        <span class="gift-buy">향 선택하기</span>
+      </div>
     </a>
+  </div>
+  <div class="gift-cta-wrap">
+    <a href="https://takeashower.co.kr/shop" class="gift-cta" target="_blank">선물 세트 전체 보러가기</a>
   </div>
 </section>
 
-<!-- EMOTION 01 — 향과 감정 -->
-<section class="emotion-section fade-in">
-  <div class="emotion-text">
-    <div class="num">01</div>
-    <h2>향은<br><em>엄마의 기억을<br>꺼냅니다</em></h2>
+<!-- 4. 브랜드 경험 -->
+<section class="experience fade-in">
+  <div class="experience-text">
+    <h2>씻는 게 아니라,<br><em>하루를 내려놓는 시간</em></h2>
     <p>
-      엄마가 쓰던 바디로션 향,<br>
-      그 옆에 있던 날의 따뜻함.<br><br>
-      테이크어샤워의 향은 단순한 향기가 아닙니다.<br>
-      잊고 있던 감정을 천천히 불러오는 시간입니다.
+      샤워기 아래 서 있는 그 짧은 시간.<br>
+      좋은 향이 하루의 긴장을 녹이고<br>
+      다시 나로 돌아오게 합니다.
     </p>
-    <a href="https://takeashower.co.kr/shop" class="emotion-link">향 보러가기</a>
   </div>
-  <div class="yt-wrap">
+  <div class="experience-video">
     <iframe src="https://www.youtube.com/embed/2tRStzVwxmk"
       title="엄마의 향기"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -468,18 +546,9 @@ body {
   </div>
 </section>
 
-<!-- QUOTE -->
-<div class="quote-section fade-in">
-  <blockquote>
-    "샤워는 하루 중 유일하게<br>나에게만 집중할 수 있는 시간"
-  </blockquote>
-  <cite>Take A Shower</cite>
-</div>
-
-<!-- EMOTION 02 — 회복 -->
-<section class="emotion-section reverse fade-in">
-  <div class="emotion-text">
-    <div class="num">02</div>
+<!-- 5. 아빠 섹션 -->
+<section class="dad-section fade-in">
+  <div class="dad-text">
     <h2>그리운 아빠에게<br><em>향을 틀어드리세요</em></h2>
     <p>
       말로 전하지 못한 마음,<br>
@@ -487,9 +556,8 @@ body {
       샤워하는 그 짧은 시간,<br>
       좋아하시던 노래를 틀어드리세요.
     </p>
-    <a href="https://takeashower.co.kr/shop" class="emotion-link">제품 보러가기</a>
   </div>
-  <div class="yt-wrap">
+  <div class="dad-video">
     <iframe src="https://www.youtube.com/embed/mH0FOESlzeM"
       title="그리운 아빠에게"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -498,74 +566,19 @@ body {
   </div>
 </section>
 
-<!-- EMOTION 03 — 회복 후 나로 돌아옴 -->
-<section class="emotion-section fade-in">
-  <div class="emotion-text">
-    <div class="num">03</div>
-    <h2>샤워 후엔<br><em>다시 나로 돌아옵니다</em></h2>
-    <p>
-      욕실 문을 나설 때,<br>
-      조금 더 가벼워진 어깨를 느끼셨나요?<br><br>
-      테이크어샤워는 그 회복의 순간을<br>
-      매일 반복할 수 있도록 만들어졌습니다.
-    </p>
-    <a href="https://takeashower.co.kr/shop" class="emotion-link">루틴 시작하기</a>
-  </div>
-  <div class="yt-wrap" style="background: var(--bg2); display:flex; align-items:center; justify-content:center;">
-    <span style="font-family:var(--serif); font-size:clamp(60px,10vw,120px); font-weight:300; color:rgba(184,168,152,0.2);">You</span>
-  </div>
+<!-- 6. 배송 CTA -->
+<section class="delivery-cta fade-in">
+  <span class="delivery-badge">🚚 배송 안내</span>
+  <h2>5월 6일까지 주문하면<br><em>어버이날 전 도착</em> 보장</h2>
+  <p>5월 6일(화)까지 주문 시 어버이날(5월 8일) 전 도착 보장 · 선물 포장 옵션 선택 가능</p>
+  <a href="#gift" class="delivery-cta-btn">지금 선물하기</a>
 </section>
 
-<!-- GIFT SECTION -->
-<section class="gift-section fade-in" style="display:none;">
-  <div class="gift-header">
-    <h2>사랑하는 사람에게<br><em>향을 선물하세요</em></h2>
-    <p>클릭하면 바로 구매 페이지로 이동합니다</p>
-  </div>
-  <div class="gift-grid">
-    <a class="gift-card" href="https://takeashower.co.kr/product/garden-gift-set/21/category/25/display/1/" target="_blank">
-      <img src="https://ecimg.cafe24img.com/pg827b68986978015/tas2024/web/product/small/20260219/261d26594232e14a01b712e57f88673f.jpg" alt="GARDEN 세트">
-      <span class="gift-cat">Body Lotion + Body Wash</span>
-      <span class="gift-name">GARDEN</span>
-      <span class="gift-sub">바디로션 + 바디워시 세트</span>
-      <span class="gift-price">₩52,000</span>
-      <span class="gift-buy">구매하기</span>
-    </a>
-    <a class="gift-card" href="https://takeashower.co.kr/product/ubud-gift-set/22/category/25/display/1/" target="_blank">
-      <img src="https://ecimg.cafe24img.com/pg827b68986978015/tas2024/web/product/small/20260223/2f335870cfe897d802c175cb916461a0.jpg" alt="Ubud 세트">
-      <span class="gift-cat">Body Lotion + Body Wash</span>
-      <span class="gift-name">Ubud</span>
-      <span class="gift-sub">바디로션 + 바디워시 세트</span>
-      <span class="gift-price">₩52,000</span>
-      <span class="gift-buy">구매하기</span>
-    </a>
-    <a class="gift-card" href="https://takeashower.co.kr/product/fovere-gift-set/24/category/25/display/1/" target="_blank">
-      <img src="https://ecimg.cafe24img.com/pg827b68986978015/tas2024/web/product/small/20260312/5b2b2b7fb0d6a5ac0f792c80f7d592a6.jpg" alt="FOVERE 세트">
-      <span class="gift-cat">Body Lotion + Body Wash</span>
-      <span class="gift-name">FOVERE</span>
-      <span class="gift-sub">바디로션 + 바디워시 세트</span>
-      <span class="gift-price">₩52,000</span>
-      <span class="gift-buy">구매하기</span>
-    </a>
-    <a class="gift-card" href="https://takeashower.co.kr/product/ficus-gift-set/23/category/25/display/1/" target="_blank">
-      <img src="https://ecimg.cafe24img.com/pg827b68986978015/tas2024/web/product/extra/small/20260219/8081968cc46fa5eadcd2ae351120ddc6.jpg" alt="FICUS 세트">
-      <span class="gift-cat">Body Lotion + Body Wash</span>
-      <span class="gift-name">FICUS</span>
-      <span class="gift-sub">바디로션 + 바디워시 세트</span>
-      <span class="gift-price">₩52,000</span>
-      <span class="gift-buy">구매하기</span>
-    </a>
-  </div>
-</section>
-
-<!-- BIG CTA -->
-<section class="big-cta fade-in">
-  <h2>오늘 샤워가<br><em>달라집니다</em></h2>
-  <p>
-    향 하나가 하루를 바꿀 수 있습니다.<br>
-    지금 나에게, 혹은 소중한 사람에게 선물하세요.
-  </p>
-  <a href="https://takeashower.co.kr/shop" class="big-cta-btn">지금 구매하기</a>
+<!-- 7. 마지막 CTA -->
+<section class="final-cta fade-in">
+  <h2>결국 기억에 남는 건,<br><em>향입니다</em></h2>
+  <p>올해 어버이날, 조금 다른 선물을 드려보세요.</p>
+  <a href="#gift" class="final-cta-btn">선물하기</a>
 </section>
 
 <script>
@@ -573,7 +586,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) e.target.classList.add('visible');
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
